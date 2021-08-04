@@ -1,0 +1,40 @@
+.card
+{
+    border: 2px solid white;
+    height: 205px;
+    margin-top: 40px;
+    width: 180px;
+    float: left;
+    background-color: yellow;
+    margin-left: 32px;
+    border-radius: 0px;
+    
+}
+
+.card-body {
+    margin-top: 16px;
+    height: 200px;
+    width: 180px;
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    background-color: green;
+}
+
+.card-body > img {
+    position:relative;
+    height: 200px;
+    width: 180px;
+    /* animation: rotation 2s infinite linear; */
+    object-fit: fill;
+    background-color:aqua;
+}
+
+@keyframes rotation {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+    transform: rotate(359deg);
+    }
+}
