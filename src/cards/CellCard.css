@@ -1,33 +1,28 @@
 .card
 {
-    border: 2px solid white;
-    height: 205px;
+    border: 2px solid #7c95ac;
+    height: 302px;
     margin-top: 40px;
-    width: 180px;
+    width: 280px;
     float: left;
-    background-color: yellow;
     margin-left: 32px;
-    border-radius: 0px;
-    
+    border-radius: 0px; 
 }
 
 .card-body {
     margin-top: 16px;
-    height: 200px;
-    width: 180px;
+    height: 300px;
+    width: 280px;
     padding-right: 0px;
     margin-right: 0px;
     padding-left: 0px;
-    background-color: green;
 }
 
 .card-body > img {
     position:relative;
-    height: 200px;
-    width: 180px;
-    /* animation: rotation 2s infinite linear; */
+    height: 300px;
+    width: 280px;
     object-fit: fill;
-    background-color:aqua;
 }
 
 @keyframes rotation {

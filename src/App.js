@@ -4,15 +4,25 @@ import background from './img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpe
 
 import { CellCard } from './cards/CellCard'
 
+let listOfImages = []
+
+const importAll = (urls) => {
+  return urls.keys().map(urls)
+}
+
 function App() {
+
 
   return (
   <div>
     <div style={{
-      marginTop: '20px',
+      marginTop: '30px',
       marginLeft: '35px',
       fontSize: '45px',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: '#ffc300',
+      color: '#e0ac00',
+      color: '#001d3d',
     }}>
       Batman Gets an Apology
     </div>
