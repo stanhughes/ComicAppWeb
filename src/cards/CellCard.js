@@ -1,10 +1,10 @@
 import './CellCard.css'
 import cellImage from '../img/comicimages/ComicGirlArt01.png'
-const CellCard = () => {
+const CellCard = (image) => {
     return (
         <dev class="card">
             <dev class="card-body">
-                <img src={cellImage} />
+                <img src={image.default} />
             </dev>
         </dev>
     )

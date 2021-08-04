@@ -1,16 +1,31 @@
+import React, { useState, useEffect } from 'react'
+
 import './App.css';
 import background from './img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpeg'
 
 import { CellCard } from './cards/CellCard'
 
-let listOfImages = []
+ let staticListOfImages = [
+   { image: null, index: 1 },
+   { image: null, index: 2 }
+ ]
 
-const importAll = (urls) => {
-  return urls.keys().map(urls)
+const importAll = (fileObjects) => {
+  return fileObjects.keys().map(fileObjects)
 }
 
 const App = () => {
+  const [listOfImages, setListOfImages] = useState(staticListOfImages)
 
+  useEffect(() => {
+    const performAsync = async () => {
+      const listOfImages = 
+        await importAll(require.context('./img/', true, /\.png$/))
+      setListOfImages(listOfImages)      
+    }
+
+    performAsync()
+  }, [])
 
   return (
   <div>
@@ -25,13 +40,13 @@ const App = () => {
     }}>
       Batman Gets an Apology
     </div>
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
+    {
+      listOfImages 
+      ? listOfImages.map(
+        (image) => CellCard(image)
+      )
+      : null
+    }
   </div>
   )
 }
