@@ -28,7 +28,11 @@ const App = () => {
   }, [])
 
   return (
-  <div>
+  <article>
+  <div style={{
+    overflowY: 'scroll',
+    backgroundColor: 'brown'
+  }}>
     <div style={{
       marginTop: '30px',
       marginLeft: '35px',
@@ -40,6 +44,10 @@ const App = () => {
     }}>
       Batman Gets an Apology
     </div>
+    <div style={{
+      overflowY: 'scroll',
+      backgroundColor: 'blue'
+    }}>
     {
       listOfImages 
       ? listOfImages.map(
@@ -47,7 +55,9 @@ const App = () => {
       )
       : null
     }
+    </div>
   </div>
+  </article>
   )
 }
 
