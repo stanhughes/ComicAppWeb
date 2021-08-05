@@ -1,6 +1,6 @@
-body::after {
+/* body::after {
   content: "";
-  /* background: url(img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpeg) no-repeat center center fixed; */
+  background: url(img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpeg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -12,12 +12,14 @@ body::after {
   right: 0;
   position: absolute;
   z-index: -1;
-  /* background-color: green; */
+  background-color: green;
   background-attachment:local;
-}
+  overflow-y: 'scroll';
+} */
 
 .App {
   text-align: center;
+  background-color: transparent;
 }
 
 .App-logo {
@@ -33,7 +35,6 @@ body::after {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -51,22 +52,10 @@ body::after {
 
 html {
   scroll-behavior: smooth;
+  background-color: transparent;
+  overflow: scroll;
 }
 
-html::after {
-  content: "";
-  /* background: url(img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpeg) no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: 0.36;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  background-color: purple;
-  background-attachment:local;
+body {
+  background-color: transparent;
 }
