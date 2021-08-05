@@ -1,62 +1,81 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
+
 import './App.css';
 import background from './img/background/marcin-lukasik-uYpOYyJdhRE-unsplash.jpeg'
 
 import { CellCard } from './cards/CellCard'
 
-let listOfImages = []
+ let staticListOfImages = [
+   { image: null, index: 1 },
+   { image: null, index: 2 }
+ ]
 
-const importAll = (urls) => {
-  return urls.keys().map(urls)
+const importAll = (fileObjects) => {
+  return fileObjects.keys().map(fileObjects)
 }
 
-function App() {
+const App = () => {
+  const [listOfImages, setListOfImages] = useState(staticListOfImages)
 
+  useEffect(() => {
+    const performAsync = async () => {
+      const listOfImages = 
+        await importAll(require.context('./img/', true, /\.png$/))
+      setListOfImages(listOfImages)      
+    }
+
+    performAsync()
+    document.body.style.backgroundColor = 'transparent'
+    const rootElement = document.getElementById('root')
+    rootElement.style.backgroundColor = '#ffd60a'
+    rootElement.style.backgroundClip = background
+    // rootElement.style.backgroundColor = 'transparent'
+    const children = rootElement.childNodes
+    for (const child of children) {
+    }
+  }, [])
 
   return (
-  <div>
+  <div style={{
+    overflow: 'scroll',
+    backgroundColor: 'transparent'
+  }}>
+    <div style={{
+      content: "",
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      background: `url(${background}) no-repeat center center fixed`,
+      backgroundSize: 'cover',
+      opacity: 0.36,
+      zIndex: -1,  
+    }}>
+    </div>
     <div style={{
       marginTop: '30px',
       marginLeft: '35px',
       fontSize: '45px',
       fontWeight: 'bold',
-      color: '#ffc300',
-      color: '#e0ac00',
       color: '#001d3d',
+      backgroundColor: 'transparent'
     }}>
       Batman Gets an Apology
     </div>
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
-    <CellCard />
+    <div style={{
+      backgroundColor: 'transparent',
+    }}>
+    {
+      listOfImages 
+      ? listOfImages.map(
+        (image) => CellCard(image)
+      )
+      : null
+    }
+    </div>
   </div>
   )
-  return (
-    <div style={{
-      backgroundImage: `url(${background}) no-repeat center center fixed`
-    }}
-    >
-      Hello Stan
-    </div>
-  )
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Mike Mercer</h1>
-        <img src={background} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-      <body>
-        <div ></div>
-      </body>
-    </div>
-  );
 }
 
-export default App;
+export { App }
